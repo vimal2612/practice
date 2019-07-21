@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+     <h1> Hello </h1>
+     there
+
+
+        
+        
+    </body>
+
+    <script>
+        const s = "Hello world";
+console.log(s.split(" "));
+
+const fruits = ["vimal", 1, 2];
+
+console.log (fruits[0]);
+
+fruits.push ("raj");
+console.log(fruits);
+console.log(fruits[3]);
+
+fruits.unshift("shru");
+fruits.pop("raj");
+
+fruits.__proto__.push("vimal", "hello");
+
+fruits.__proto__.push(["new", "ref"]);
+
+console.log(Array.isArray(fruits.__proto__));
+
+const person = [{
+
+    firstName: 'Vimal',
+    lastName: 'Kumar',
+    isCompleted: true
+},
+
+{
+
+firstName: 'Shruthi',
+lastName: 'Kripa',
+isCompleted: false
+},
+
+{
+
+firstName: 'Rajesh',
+lastName: 'Kumar',
+isCompleted: false
+},
+
+];
+
+console.log(`hi there ${person.firstName} `);
+
+const {firstName, lastName} = person;
+
+ console.log(firstName);
+
+ person.email = "vimal.kumar.nitk@gmail.com"; 
+
+ console.log(person.email);
+
+ console.log(JSON.stringify(person));
+
+ person.__proto__.phone = "9945595505";
+ console.log(person.__proto__);
+
+
+ // for loops
+
+ for(let i=0; i < fruits.length; i++) {
+     console.log(`Hello ${fruits[i]}`);
+ }
+
+ fruits.unshift("hey");
+
+ for(let i=0; i < fruits.length; i++) {
+     console.log(`Hello ${fruits[i]}`);
+ }
+
+// important
+
+ for(let fruit of fruits) {
+    console.log(`lolo ${fruit}`);
+
+ }
+
+ // higher order array method
+
+ fruits.forEach( (fruit)=> {
+     console.log (fruit)
+ });
+
+ person.forEach( (data)=> {
+     console.log (data.lastName)
+ });
+
+const personMap = person.map ( (data)=> {
+   
+     return data.firstName;
+ });
+
+ console.log (`hello ${personMap}`);
+
+ const personFilter = person.filter ( (data)=> {
+   
+   return data.isCompleted === false;
+}).map ((data)=>{return data.firstName;})
+
+console.log (personFilter);
+
+ console.log(personFilter[0].firstName);
+
+// Conditions
+
+let x = 11
+
+ if (x===0) {
+    console.log (`its a ${x}`);
+}
+else if (x===1) {
+    console.log (`its a ${x}`);
+}
+else if (x===10) {
+    console.log (`its a ${x}`);
+}
+else {
+    console.log (`its a ${x}`);
+}
+
+const colour =  x > 10 ?  'blue' : "red";
+
+console.log (colour);
+
+ 
+// Switch case
+
+
+
+switch(colour) {
+    case 'red':
+    console.log ('red');
+    break;
+
+    case 'blue':
+    console.log ('blue');
+    break;
+
+    case 'yellow':
+    console.log ('yellow');
+    break;
+
+}
+
+
+
+// functions
+
+const addnums = (num1 = 1, num2 = 2)=> {
+   
+  return (num1 + num2);
+}
+
+console.log(addnums(5,3));
+
+ console.log(window);
+ 
+
+// string
+
+function reverseString(str) {
+    
+   var splitStr = str.split("").reverse().join("");
+
+  
+
+   console.log (splitStr);
+  
+
+
+}
+
+reverseString ("rajesh");
+
+//TEst
+
+const words = ["vimal", 'map', 'pam', 'art', 'how', 'rat', 'tar', 'who', 'shoop'];
+
+// helper function
+function alphabetize(word) {
+    if (!word) {
+        return;
+    }
+    word = word.split('');
+    word = word.sort();
+    word = word.join('');
+    return word;
+    
+}
+
+
+
+// main function
+function getGroupedAnagrams(words){
+    const anagrams = {};
+    words.forEach((word)=>{
+        const sortedWord = alphabetize(word);
+        if (anagrams[sortedWord]) {
+            return anagrams[sortedWord].push(word);
+        }
+        anagrams[sortedWord] = [word];
+     });
+    return anagrams;
+    console.log()
+    
+    
+}
+
+
+
+
+
+
+
+
+// store the result (anagrams object) in a variable called groupedAnagrams
+
+
+const groupedAnagrams = getGroupedAnagrams(words);
+
+console.log(groupedAnagrams);
+
+// iterate over groupedAnagrams, printing out each key:value pair on an individual line
+for(const sortedWord in groupedAnagrams){
+    console.log(groupedAnagrams[sortedWord].toString());
+}
+
+// callbacks
+
+function createQuote(quote, callback){ 
+  var myQuote = "Like I always say, " + quote;
+  callback(myQuote); // 2
+}
+
+function logQuote(data){
+  console.log(data);
+}
+
+createQuote("eat your vegetables!", logQuote);
+
+
+
+// callbacks examples
+
+function firstnew(num1, callback){
+
+    console.log(`I'm number ${num1}`);
+    // callback();
+}
+
+function secondnew (data, callback1, callback2 ){
+
+    console.log(`I'm a number ${data}`);
+
+    console.log(`I'm a nnumber ${callback1}`);
+
+    callback2 (5);
+   
+}
+
+function thirdnew (data1) {
+  
+  console.log (`I'm ${data1}`);
+}
+
+secondnew (3,4, thirdnew);
+
+firstnew(1, secondnew);
+
+//example 2
+
+
+function serverRequest(query, callback){
+  
+    var response = query + "full!";
+    callback(response);
+  }
+
+function getResults(results){
+  console.log("Response from the server: " + results);
+}
+
+serverRequest("The glass is half ", getResults);
+ 
+// new 
+var name;
+
+
+console.log(name);
+console.log(name);
+console.log (name);
+
+
+
+var numbers = function (number1, number2){
+
+    console.log (number1* number2);
+
+}
+
+numbers (3,6);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </script>
+</html>

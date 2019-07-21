@@ -1,0 +1,28 @@
+<div class="container"> 
+
+        <form [formGroup]="alistForm">
+            <div class="form-group">
+              <label for="exampleInputText1">Full Name</label>
+              <input formControlName="fullname" type="text" class="form-control" id="exampleInputText1" aria-describedby="textHelp" placeholder="Enter Full Name">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email</label>
+              <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1" placeholder="email">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputNumber1">Mobile</label>
+                <input formControlName="mobile" type="number" class="form-control" id="exampleInputNumber1" placeholder="Mobile Number">
+            </div>
+            <div class="form-group">
+                <label for="exampleCity1">City</label>
+                <input formControlName="city" type="text" class="form-control" id="exampleCity1" placeholder="Country Name">
+            </div>
+
+            <button type="submit" class="btn btn-primary" (click)="send()">Submit</button>
+            <button type="submit" class="btn btn-primary">View All</button>
+        
+          </form>
+        
+          </div> 
+  
+  
